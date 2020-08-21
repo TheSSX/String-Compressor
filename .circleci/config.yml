@@ -8,8 +8,6 @@ jobs:
       - run: pip install coverage sinon
       - run: coverage run -m unittest discover -s test -v
       - run: coverage report -m --omit="*/sinon*"
-      - store_test_results:
-        path: htmlcov
 
 workflows:
   version: 2.1
