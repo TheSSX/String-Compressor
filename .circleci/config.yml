@@ -1,23 +1,16 @@
 version: 2.1
-
-orbs:
-  python: circleci/python@0.2.1
-
-jobs:
+jobs: 
   build-and-test:
-    executor: python/default
+    docker:
+      - image: circleci/python:3.8.2
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
-      - run:
-          command: coverage run -m unittest discover -s test -v; coverage html
-          name: Test
-      - store_test_results:
-        path : htmlcov
+      - run: pip install coverage sinon
+      - run: coverage run -m unittest discover -s test -v
+      - run: coverage report -m
 
 workflows:
-  main:
+  version: 2.1
+  build_and_test:
     jobs:
       - build-and-test
