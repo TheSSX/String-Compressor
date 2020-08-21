@@ -182,7 +182,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 pytestdebug.log
-.coveragerc
 
 # Translations
 *.mo
@@ -280,3 +279,4 @@ dmypy.json
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,python
 .vscode/launch.json
 .vscode/settings.json
+process.yml
